@@ -5,11 +5,11 @@ namespace Square.Tests
     [TestFixture]
     public class CircleTest
     {
-        [Test]
-        public void CircleNotExists()
+        [TestCase(0)]
+        [TestCase(-5)]
+        public void CircleNotExists(double r)
         {
-            Circle circle = null;
-            Assert.Throws<FigureNotExistException>(() => circle = new Circle(-5));
+            Assert.Throws<FigureNotExistException>(() => new Circle(-5));
         }
         
         [TestCase(1, 3.14159)]
