@@ -17,10 +17,10 @@ namespace Area.Tests
         [TestCase(6, 113.09734)]
         [TestCase(111, 38707.56308)]
         [DefaultFloatingPointTolerance(0.00001)]
-        public void CircleSquare(double r, double square)
+        public void CircleSquare(double r, double area)
         {
             var circle = new Circle(r);
-            Assert.AreEqual(square, circle.Area);
+            Assert.AreEqual(area, circle.Area);
         }
     }
 }

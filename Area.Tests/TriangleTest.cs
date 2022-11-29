@@ -18,10 +18,10 @@ namespace Area.Tests
         [TestCase(5, 7, 3, 6.49519)]
         [TestCase(110, 80, 75, 2999.94141)]
         [DefaultFloatingPointTolerance(0.00001)]
-        public void TriangleSquare(double a, double b, double c, double square)
+        public void TriangleSquare(double a, double b, double c, double area)
         {
             var triangle = new Triangle(a, b, c);
-            Assert.AreEqual(square, triangle.Area);
+            Assert.AreEqual(area, triangle.Area);
         }
 
         [TestCase(3, 4, 5, ExpectedResult = true)]
