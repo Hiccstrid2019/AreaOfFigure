@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Square
+namespace Area
 {
     public class FigureNotExistException: Exception
     {

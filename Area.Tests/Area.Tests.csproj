@@ -14,7 +14,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\Square\Square.csproj" />
+      <ProjectReference Include="..\Area\Area.csproj" />
     </ItemGroup>
 
 </Project>

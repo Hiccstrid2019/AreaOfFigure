@@ -1,6 +1,7 @@
-﻿using NUnit.Framework;
+﻿using Area;
+using NUnit.Framework;
 
-namespace Square.Tests
+namespace Area.Tests
 {
     [TestFixture]
     public class TriangleTest
@@ -20,7 +21,7 @@ namespace Square.Tests
         public void TriangleSquare(double a, double b, double c, double square)
         {
             var triangle = new Triangle(a, b, c);
-            Assert.AreEqual(square, triangle.Square);
+            Assert.AreEqual(square, triangle.Area);
         }
 
         [TestCase(3, 4, 5, ExpectedResult = true)]

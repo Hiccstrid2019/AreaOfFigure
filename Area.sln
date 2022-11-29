@@ -1,10 +1,10 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Square", "Square\Square.csproj", "{79046BDD-21DE-4A13-A5EB-725321079B70}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Area", "Area\Area.csproj", "{79046BDD-21DE-4A13-A5EB-725321079B70}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClientApp", "ClientApp\ClientApp.csproj", "{F1FEEDAA-2A00-4E23-9A8F-86D35B5578CE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Square.Tests", "Square.Tests\Square.Tests.csproj", "{8EA1BD4E-4851-436A-BE56-E39974E77083}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Area.Tests", "Area.Tests\Area.Tests.csproj", "{8EA1BD4E-4851-436A-BE56-E39974E77083}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

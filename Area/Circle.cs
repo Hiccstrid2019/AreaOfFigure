@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Square
+namespace Area
 {
     public class Circle : IFigure
     {
@@ -22,6 +22,6 @@ namespace Square
 
         }
 
-        public double Square => Math.PI * Math.Pow(Radius, 2);
+        public double Area => Math.PI * Math.Pow(Radius, 2);
     }
 }

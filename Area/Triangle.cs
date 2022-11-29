@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Square
+namespace Area
 {
     public class Triangle : IFigure
     {
@@ -50,7 +50,7 @@ namespace Square
             C = c;
         }
 
-        public double Square
+        public double Area
         {
             get
             {

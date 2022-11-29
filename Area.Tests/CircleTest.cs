@@ -1,6 +1,7 @@
+using Area;
 using NUnit.Framework;
 
-namespace Square.Tests
+namespace Area.Tests
 {   
     [TestFixture]
     public class CircleTest
@@ -19,7 +20,7 @@ namespace Square.Tests
         public void CircleSquare(double r, double square)
         {
             var circle = new Circle(r);
-            Assert.AreEqual(square, circle.Square);
+            Assert.AreEqual(square, circle.Area);
         }
     }
 }
