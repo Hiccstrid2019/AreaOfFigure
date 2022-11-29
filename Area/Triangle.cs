@@ -2,7 +2,7 @@
 
 namespace Area
 {
-    public class Triangle : IFigure
+    public class Triangle : Figure, IFigure
     {
         private double _a;
         public double A

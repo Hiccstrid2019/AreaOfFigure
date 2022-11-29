@@ -2,7 +2,7 @@
 
 namespace Area
 {
-    public class Circle : IFigure
+    public class Circle : Figure, IFigure
     {
         public Circle(double radius)
         {
