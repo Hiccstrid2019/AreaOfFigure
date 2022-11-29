@@ -12,65 +12,70 @@
 ## Вопрос №2
 В базе данных MS SQL Server есть продукты и категории. Одному продукту может соответствовать много категорий, в одной категории может быть много продуктов. Напишите SQL запрос для выбора всех пар «Имя продукта – Имя категории». Если у продукта нет категорий, то его имя все равно должно выводиться.
 
+#
+
 <details>
   <summary>Код создания таблиц</summary>
   
-  
-  __Судя во всему в данном случае имеем связь многие ко многим__
+  *Судя во всему в данном случае имеем связь многие ко многим*
   
   Примерная структура базы данных могла бы выглядеть следующим образом:
   
   ```sql
- create table Product
-(
-	ProductId int primary key,
-	ProductName nvarchar(64) not null
-);
+	CREATE TABLE Product
+	(
+		ProductId int PRIMARY KEY,
+		ProductName nvarchar(64) NOT NULL
+	);
 
-insert into Product(ProductId, ProductName) values (1, 'bread');
-insert into Product(ProductId, ProductName) values (2, 'coffe');
-insert into Product(ProductId, ProductName) values (3, 'apple');
-insert into Product(ProductId, ProductName) values (4, 'tomato');
-insert into Product(ProductId, ProductName) values (5, 'bear');
-insert into Product(ProductId, ProductName) values (6, 'pepper');
+	INSERT INTO Product(ProductId, ProductName) VALUES (1, 'bread');
+	INSERT INTO Product(ProductId, ProductName) VALUES (2, 'coffe');
+	INSERT INTO Product(ProductId, ProductName) VALUES (3, 'apple');
+	INSERT INTO Product(ProductId, ProductName) VALUES (4, 'tomato');
+	INSERT INTO Product(ProductId, ProductName) VALUES (5, 'bear');
+	INSERT INTO Product(ProductId, ProductName) VALUES (6, 'pepper');
 
-create table Category
-(
-	CategoryId int primary key,
-	CategoryName nvarchar(32) not null
-);
 
-insert into Category(CategoryId, CategoryName) values (1, 'drink');
-insert into Category(CategoryId, CategoryName) values (2, 'fruit');
-insert into Category(CategoryId, CategoryName) values (3, 'perishable');
-insert into Category(CategoryId, CategoryName) values (4, 'long-term storage');
-insert into Category(CategoryId, CategoryName) values (5, 'vegetables');
+	CREATE TABLE Category 
+	(
+		CategoryId int PRIMARY KEY,
+		CategoryName nvarchar(32) NOT NULL
+	);
 
-create table ProductCategory
-(
-	ProductId int foreign key references Product,
-	CategoryId int foreign key references Category
-	primary key(ProductId, CategoryId)
-);
+	INSERT INTO Category(CategoryId, CategoryName) VALUES (1, 'drink');
+	INSERT INTO Category(CategoryId, CategoryName) VALUES (2, 'fruit');
+	INSERT INTO Category(CategoryId, CategoryName) VALUES (3, 'perishable');
+	INSERT INTO Category(CategoryId, CategoryName) VALUES (4, 'long-term storage');
+	INSERT INTO Category(CategoryId, CategoryName) VALUES (5, 'vegetables');
 
-insert into ProductCategory(ProductId, CategoryId) values (2, 1);
-insert into ProductCategory(ProductId, CategoryId) values (2, 4);
-insert into ProductCategory(ProductId, CategoryId) values (3, 2);
-insert into ProductCategory(ProductId, CategoryId) values (3, 3);
-insert into ProductCategory(ProductId, CategoryId) values (4, 3);
-insert into ProductCategory(ProductId, CategoryId) values (4, 5);
-insert into ProductCategory(ProductId, CategoryId) values (5, 1);
+
+	CREATE TABLE ProductCategory 
+	(
+		ProductId int FOREIGN KEY REFERENCES Product,
+		CategoryId int FOREIGN KEY REFERENCES Category 
+		PRIMARY key(ProductId, CategoryId)
+	);
+
+	INSERT INTO ProductCategory(ProductId, CategoryId) VALUES (2, 1);
+	INSERT INTO ProductCategory(ProductId, CategoryId) VALUES (2, 4);
+	INSERT INTO ProductCategory(ProductId, CategoryId) VALUES (3, 2);
+	INSERT INTO ProductCategory(ProductId, CategoryId) VALUES (3, 3);
+	INSERT INTO ProductCategory(ProductId, CategoryId) VALUES (4, 3);
+	INSERT INTO ProductCategory(ProductId, CategoryId) VALUES (4, 5);
+	INSERT INTO ProductCategory(ProductId, CategoryId) VALUES (5, 1);
   ```
   
 </details>
+
+##
 
 > SQL запрос для выбора всех пар «Имя продукта – Имя категории». Если у продукта нет категорий, то его имя все равно должно выводиться.
 
 __Это можно сделать с помощью следующего запроса:__
 ```sql
-select Product.ProductName,
+SELECT Product.ProductName,
        Category.CategoryName
-from Product
-left join ProductCategory ON Product.ProductId = ProductCategory.ProductId
-left join Category ON Category.CategoryId = ProductCategory.CategoryId;
+FROM Product
+LEFT JOIN ProductCategory ON Product.ProductId = ProductCategory.ProductId
+LEFT JOIN Category ON Category.CategoryId = ProductCategory.CategoryId;
 ```
